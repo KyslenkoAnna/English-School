@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>English School - Kyslenko project</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/goal--v1.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app/style.css"></link>
+</head>
+<body>
+    <div class="main_page">
+    <div class='main_header'>
+        <h1>Прокачай</br>свой</br>английский</h1>
+        <h3>Всего три шага и ты наш студент!</h3>
+    </div>
+    <div class="buttons">
+        <button type="submit" class="english_level btn btn-info btn-lg">Оцените свой уровень</button></br>
+        <button type="submit" class="calculate btn btn-info btn-lg">Расчитайте стоимость</button>
+        <button type="submit" class="contact_us btn btn-info btn-lg">Свяжитесь с нами</button></br>
+    </div>
+    </div>
+
+    <!--Modal #1-->
+<div class="test">
+    <button type="button" class="close1 btn btn"><span>&times;</span></button>
+    <div class="test_text">
+    <p id="time">Потрачено времени: 0 с.</p>
+    <p id="result"></p>
+    <p id="question"></p>
+    <div class="chooseAnswer">
+    <button onclick="check(1)" class="btn btn-success" id="option1"></button>
+    <button onclick="check(2)" class="btn btn-success" id="option2"></button>
+    <button onclick="check(3)" class="btn btn-success" id="option3"></button>
+    <button onclick="check(4)" class="btn btn-success" id="option4"></button></br>
+    <button onclick="check(0)" class="btn btn-success btn-lg" id="start">Начать тест</button>
+    </div>
+
+    <script type="text/javascript"> let curentUrl = document.URL; document.write("<a id='end' style='display: none; text-decoration:none; font-size:20px; position:absolute;margin: -25px 0 0 -100px' class='btn btn-light' href='" + curentUrl + "'>Начать сначала</a>"); </script>
+</div>
+</div>
+    <!--Modal #2-->
+<div class="modal">      
+    <button type="button" class="close2 btn btn"><span>&times;</span></button>
+    <div class="modal-info">
+            <form id="form_id" method="post" action="#.php" onsubmit="javascript:return validate('form_id','name','phone','email');">
+                <div class="form_wrap">
+                <h3>Заполните форму и мы Вам перезвоним</h3>
+                <label for="name">Введите имя</label>
+                    <input type="text" class="form-control" name="name" id="name" autocomplete="off" required>
+                <label for="phone">Введите телефон</label>
+                    <input type="text" class="form-control" name="phone" id="phone" autocomplete="off" required value="+380">
+                <label for="email">Введите E-mail</label>
+                    <input type="text" class="form-control" name="email" id="email" autocomplete="off" required><br>
+                <textarea class="message" placeholder="Ваш вопрос" name="message"></textarea>
+                <button type="submit" name="sab" class="send btn btn-primary btn-lg">Оформить заявку</button>
+                </div>
+            </form>
+        </div>
+</div>
+
+<!--Modal #3-->
+<div class="calculate_price">
+    <button type="button" class="close3 btn btn"><span>&times;</span></button>
+<div class="container calc">
+    <im class="row">
+        <div class="col-md-6">
+            <div id="calc">
+                <div class="form-group">
+                    <label for="level">Выберете желаемый уровень</label>
+                        <select id="level" class="form-control">
+                            <option selected>---</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="form">Выберете форму обучения</label>
+                        <select id="form" class="form-control">
+                            <option selected>---</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="teacher">Выберите доступного преподавателя</label>
+                        <select id="teacher" class="form-control">
+                            <option selected>---</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                        <label for="days">Сколько раз в неделю Вы желаете заниматься?</label>
+                            <select id="days" class="form-control">
+                                <option selected>---</option>
+                            </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Наименование</th>
+                        <th>Цена, грн.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Материалы для уроков (учебники, игры, книги и т.д.)</td>
+                        <td class="level">-</td>
+                    </tr>
+                    <tr>
+                        <td>Форма обучения</td>
+                        <td class="form">-</td>
+                    </tr>
+                    <tr>
+                        <td>Плюшка для учителя</td>
+                        <td class="teacher">-</td>
+                    </tr>
+                    <tr>
+                        <td>Количество занятий в неделю</td>
+                        <td class="days">-</td>
+                    </tr>
+                    <tr>
+                        <td>Стоимость курса за месяц</td>
+                        <td class="sum">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <img class="image" src="images/01.jpg" alt="Lets_study_image">
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<script src='app/test.js'></script>
+<script src='app/contactUs.js'></script>
+<script src='app/calculate.js'></script>
+</body>
+</html>

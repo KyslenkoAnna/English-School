@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|PT+Mono|Rubik+Mono+One&display=swap');
+body{
+    background-image: url(../images/back.jpg);
+}
+h1{
+    color: aliceblue;
+    font-size: 100px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 165px 0 0 30px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+h3{
+    position: absolute;
+    color:white;
+    font-size: 50px;
+    margin: 30px 0 0 30px;
+    font-family: 'Bad Script', cursive;
+}
+.english_level, .calculate, .contact_us{
+    font-family: 'Bad Script', cursive;
+}
+.main_page{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.buttons{
+    margin: 190px 0 0 210px;
+    line-height: 7;
+    
+}
+.english_level, .contact_us, .calculate{
+    font-size: 40px;
+}
+
+.close2{
+    font-size: 40px;
+    position: absolute;
+    margin: -18px 0 0 1480px;
+}
+.modal{
+    margin:auto;
+    background-image: url(../images/back2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.modal-info{
+    margin: 100px 0 0 300px;
+}
+.form_wrap h3{
+    color: black;
+    margin: -50px 0 0 -40px;
+    padding: 0 0 0 0;
+    font-size: 30px;
+}
+#form_id{
+    height: 500px;
+    width: 400px;
+}
+.message{
+    width: 500px;
+    height: 100px;
+    margin: 0 0 0 -40px;
+}
+.send{
+    margin: 18px 0 0 138px;
+}
+.test{
+    display: none;
+    background: linear-gradient(to right, #70e1f5, #ffd194);
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    font-family: 'PT Mono', monospace;
+}
+.test #option1, #option2, #option3, #option4{
+    display: none;
+}
+.close1{
+    float:right;
+    font-size: 40px;
+}
+.test_text{
+    font-size: 30px;
+    margin: 200px 0 0 0px;
+    text-align: center;
+}
+.choose_answer{
+    position: absolute;
+    font-size: 35px;
+}
+#option1,#option2, #option3, #option4{
+    margin: 10px 0 0 500px;
+    font-size: 30px;
+}
+.calculate_price{
+    display: none;
+        display: none;
+        background: linear-gradient(to right, #e8cbc0, #636fa4);
+        width:100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+}
+.close3{
+    float:right;
+    font-size: 40px;
+}
+.row{
+    margin-top: 6%;
+}
+.image{
+    margin-left: 300px;
+    border-radius: 30px;
+}
+#form_id{
+    margin-left:200px;
+}
