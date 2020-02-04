@@ -10,7 +10,7 @@ closeBtn1.addEventListener('click', function(){
     testWindow.style.display = 'none';
 });
 
-/* let dataArray = [
+let dataArray = [
     ["I have bought a computer, ________ is more expensive than this one.","who","which","that","from",2],
     ["There ________ some books on the shelves","isn't","are","aren't","doing",2],
     ["We want to meet ________ Monday.","at","in","on","since",3],
@@ -24,21 +24,15 @@ closeBtn1.addEventListener('click', function(){
     ["He ________ to be very rich","is thinking","thinks","is thought","thinking",3],
     ["By the time you come we ________ everything.","will have finished","will finish","will finished","will finishing",1],
     ["In my opinion, they’re not ________ to come to us today.","definitely","likely","like","will",2],
-    ["If they ________, the accident ________.","haven’t argued, wouldn’t happen","hadn’t argued, wouldn’t happen","haven’t argued, wouldn’t have happened","hadn’t argued, wouldn’t have happened",4],
+    ["I think I ________ for you here. I just can’t go on walking!","will wait","am going to wait","am waiting","we be waiting",1],
     ["They ________ to finish the work in time.","must","can","could","were able",4],
     ["My grandma is the kindest woman I know , she'd do anything for anybody. She really has a heart of ________","silver","gold","stone","bronze",2],
     ["This product was a huge success. The way it ________ was really unexpected","took on","took away","took back","took off",4],
     ["You can only have your money back if you can produce ______","a receipt","an invoice","a bill","an offer",1],
     ["If you’ve got heavy bags to carry, you'd be ________ a taxi.","better of taking","well-off taking","better off taking","well-of taking",3],
     ["There was no room in the hotel, so they were __________ at the B&B nearby.","accommodated","accomodated","acommodated","acomodated",1],
-]; */
-
-fetch('app/tests.json').then(resp=>resp.json()).then(dd=>{
-    dd.results.forEach(dataArray=>{
-        //Что должно быть здесь???
-    });
-});
-
+];
+     
 let plus = 0,
     time = 0,
     curAnswer = 0,
