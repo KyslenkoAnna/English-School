@@ -26,7 +26,7 @@ let dataArray = [
     ["In my opinion, they’re not ________ to come to us today.","definitely","likely","like","will",2],
     ["I think I ________ for you here. I just can’t go on walking!","will wait","am going to wait","am waiting","we be waiting",1],
     ["They ________ to finish the work in time.","must","can","could","were able",4],
-    ["My grandma is the kindest woman I know , she'd do anything for anybody. She really has a heart of ________","silver","gold","stone","bronze",2],
+    ["My grandma is the kindest woman I know. She really has a heart of ________","silver","gold","stone","bronze",2],
     ["This product was a huge success. The way it ________ was really unexpected","took on","took away","took back","took off",4],
     ["You can only have your money back if you can produce ______","a receipt","an invoice","a bill","an offer",1],
     ["If you’ve got heavy bags to carry, you'd be ________ a taxi.","better of taking","well-off taking","better off taking","well-of taking",3],
