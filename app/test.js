@@ -33,7 +33,7 @@ closeBtn1.addEventListener('click', function(){
     ["There was no room in the hotel, so they were __________ at the B&B nearby.","accommodated","accomodated","acommodated","acomodated",1],
 ]; */
 
-fetch('app/tests.json').then(resp=>resp.json()).then(dd=>{
+fetch('data/tests.json').then(resp=>resp.json()).then(dd=>{
     dd.results.forEach(dataArray=>{
         let plus = 0,
             time = 0,
