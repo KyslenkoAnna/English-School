@@ -10,7 +10,7 @@ closeBtn1.addEventListener('click', function(){
     testWindow.style.display = 'none';
 });
 
-let dataArray = [
+/* let dataArray = [
     ["I have bought a computer, ________ is more expensive than this one.","who","which","that","from",2],
     ["There ________ some books on the shelves","isn't","are","aren't","doing",2],
     ["We want to meet ________ Monday.","at","in","on","since",3],
@@ -31,79 +31,83 @@ let dataArray = [
     ["You can only have your money back if you can produce ______","a receipt","an invoice","a bill","an offer",1],
     ["If you’ve got heavy bags to carry, you'd be ________ a taxi.","better of taking","well-off taking","better off taking","well-of taking",3],
     ["There was no room in the hotel, so they were __________ at the B&B nearby.","accommodated","accomodated","acommodated","acomodated",1],
-];
-     
-let plus = 0,
-    time = 0,
-    curAnswer = 0,
-    countAnswer = dataArray.length;
+]; */
 
-function sec() {
-    time++;	
-    document.querySelector('#time').innerHTML = 'Потрачего времени: ' + time + ' с.';
-}
+fetch('app/tests.json').then(resp=>resp.json()).then(dd=>{
+    dd.results.forEach(dataArray=>{
+        let plus = 0,
+            time = 0,
+            curAnswer = 0,
+            countAnswer = dataArray.length;
 
-function check(num){
-    if(num == 0){ 
-      
-    document.querySelector('#option1').style.display = 'block';
-    document.querySelector('#option2').style.display = 'block';
-    document.querySelector('#option3').style.display = 'block';
-    document.querySelector('#option4').style.display = 'block';
+        function sec() {
+            time++;	
+            document.querySelector('#time').innerHTML = 'Потрачего времени: ' + time + ' с.';
+        }
 
-    document.querySelector('#question').style.display = 'block';
+        function check(num){
+            if(num == 0){ 
+            
+                document.querySelector('#option1').style.display = 'block';
+                document.querySelector('#option2').style.display = 'block';
+                document.querySelector('#option3').style.display = 'block';
+                document.querySelector('#option4').style.display = 'block';
 
-    document.querySelector('#option1').innerHTML = dataArray[curAnswer][1];
-    document.querySelector('#option2').innerHTML = dataArray[curAnswer][2];
-    document.querySelector('#option3').innerHTML = dataArray[curAnswer][3];
-    document.querySelector('#option4').innerHTML = dataArray[curAnswer][4];
+                document.querySelector('#question').style.display = 'block';
 
-    document.querySelector('#question').innerHTML = dataArray[curAnswer][0];
-          
-    document.querySelector('#start').style.display = 'none';
-    document.querySelector('#end').style.display = 'inline';
-          
-let intervalID = setInterval(sec, 1000);
-          
-    }else{
+                document.querySelector('#option1').innerHTML = dataArray[curAnswer][1];
+                document.querySelector('#option2').innerHTML = dataArray[curAnswer][2];
+                document.querySelector('#option3').innerHTML = dataArray[curAnswer][3];
+                document.querySelector('#option4').innerHTML = dataArray[curAnswer][4];
 
-    if( num ==  dataArray[curAnswer][5]){
-        plus++;
-        document.getElementById('result').innerHTML = 'Правильно! Так держать!';
-    }else{
-        document.getElementById('result').innerHTML = "Неправильно! Правильный ответ: " + dataArray[curAnswer][dataArray[curAnswer][5]];
-    }
-              
-    curAnswer++;
-    if(curAnswer < countAnswer){
-          
-        document.getElementById('option1').innerHTML = dataArray[curAnswer][1];
-        document.getElementById('option2').innerHTML = dataArray[curAnswer][2];
-        document.getElementById('option3').innerHTML = dataArray[curAnswer][3];
-        document.getElementById('option4').innerHTML = dataArray[curAnswer][4];
+                document.querySelector('#question').innerHTML = dataArray[curAnswer][0];
+                    
+                document.querySelector('#start').style.display = 'none';
+                document.querySelector('#end').style.display = 'inline';
+                
+                let intervalID = setInterval(sec, 1000);
+                
+            }else{
 
-        document.getElementById('question').innerHTML = dataArray[curAnswer][0];
-              
-    }else{
-              
-        document.getElementById('time').id = 'stop';
-        document.getElementById('option1').style.display = 'none';
-        document.getElementById('option2').style.display = 'none';
-        document.getElementById('option3').style.display = 'none';
-        document.getElementById('option4').style.display = 'none';
+                if (num ==  dataArray[curAnswer][5]){
+                    plus++;
+                    document.getElementById('result').innerHTML = 'Правильно! Так держать!';
+                }else{
+                    document.getElementById('result').innerHTML = "Неправильно! Правильный ответ: " + dataArray[curAnswer][dataArray[curAnswer][5]];
+                }
+                    
+                curAnswer++;
 
-        document.getElementById('question').style.display = 'none';
-        document.getElementById('end').style.display = 'inline';
-              
-        let percent =  Math.round(plus / countAnswer * 100);				
-        let result = 'Ваш уровень: Beginner';
-        if(percent > 10) result = 'Ваш уровень: Elementary';
-        if(percent > 30) result = 'Ваш уровень: Pre-intermediate';
-        if(percent > 60) result = 'Ваш уровень: Intermediate';
-        if(percent > 80) result = 'Ваш уровень: Upper-intermediate';
-        if(percent == 100) result = 'Ваш уровень: Advanced';
-              
-        document.getElementById('result').innerHTML = 'Правильних відповідей: ' + plus + ' з ' + countAnswer + ' (' + percent + '%)<br>' + result;
-        }      
-    }
-}
+                if(curAnswer < countAnswer){      
+                    document.getElementById('option1').innerHTML = dataArray[curAnswer][1];
+                    document.getElementById('option2').innerHTML = dataArray[curAnswer][2];
+                    document.getElementById('option3').innerHTML = dataArray[curAnswer][3];
+                    document.getElementById('option4').innerHTML = dataArray[curAnswer][4];
+
+                    document.getElementById('question').innerHTML = dataArray[curAnswer][0];
+                        
+                }else{
+                        
+                    document.getElementById('time').id = 'stop';
+                    document.getElementById('option1').style.display = 'none';
+                    document.getElementById('option2').style.display = 'none';
+                    document.getElementById('option3').style.display = 'none';
+                    document.getElementById('option4').style.display = 'none';
+
+                    document.getElementById('question').style.display = 'none';
+                    document.getElementById('end').style.display = 'inline';
+                        
+                let percent =  Math.round(plus / countAnswer * 100);				
+                let result = 'Ваш уровень: Beginner';
+                    if(percent > 10) result = 'Ваш уровень: Elementary';
+                    if(percent > 30) result = 'Ваш уровень: Pre-intermediate';
+                    if(percent > 60) result = 'Ваш уровень: Intermediate';
+                    if(percent > 80) result = 'Ваш уровень: Upper-intermediate';
+                    if(percent == 100) result = 'Ваш уровень: Advanced';
+                        
+                    document.getElementById('result').innerHTML = 'Правильних відповідей: ' + plus + ' з ' + countAnswer + ' (' + percent + '%)<br>' + result;
+                }      
+            }
+        }
+    });
+});

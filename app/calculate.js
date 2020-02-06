@@ -77,7 +77,7 @@ $(function(){
             for (price in groupOrIndividual[selectLevel]){
                 html += '<option data-price="' + price + '">' + groupOrIndividual[selectLevel][price] +'</option>';
             }
-            $('#form').html(html);
+            document.querySelector('#form').innerHTML = html;
         }
 
         function insertTeacher() {
@@ -86,7 +86,7 @@ $(function(){
             for (price in teacher[selectLevel]){
                 html += '<option data-price="' + price + '">' + teacher[selectLevel][price] + '</option>';
             }
-            $('#teacher').html(html);
+            document.querySelector('#teacher').innerHTML = html;
         }
         
         function insertDays() {
@@ -95,7 +95,7 @@ $(function(){
             for (price in days[selectLevel]){
                 html += '<option data-price="' + price + '">' + days[selectLevel][price] + '</option>';
             }
-            $('#days').html(html);
+            document.querySelector('#days').innerHTML = html;
         }
 
         function changeGroupOrIndividual(){
@@ -124,28 +124,18 @@ $(function(){
         }
 
         function changeTable(){
-            $('.level').text(selectBookPrice);
-            $('.form').text(selectForm);
-            $('.teacher').text(selectTeacher);
-            $('.days').text(selectDays);
-            $('.sum').text(sum);
+            document.querySelector('.level').textContent = selectBookPrice;
+            document.querySelector('.form').textContent = selectForm;
+            document.querySelector('.teacher').textContent = selectTeacher;
+            document.querySelector('.days').textContent = selectDays;
+            document.querySelector('.sum').textContent = sum;
 
         }
 
         insertLevel();
 
-        $('#level').change(function(){
-            changeLevel();
-        });
-
-        $('#form').change(function(){
-            changeGroupOrIndividual();
-        });
-
-        $('#teacher').change(function(){
-            changeTeacher();
-        });
-        $('#days').change(function(){
-            changeDays();
-        });
+        document.querySelector('#level').addEventListener('change', changeLevel);
+        document.querySelector('#form').addEventListener('change', changeGroupOrIndividual);
+        document.querySelector('#teacher').addEventListener('change', changeTeacher);
+        document.querySelector('#days').addEventListener('change', changeDays);
 });
