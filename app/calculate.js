@@ -56,6 +56,9 @@ $(function(){
                 }
             }
             $('#level').append(html);
+            /* document.querySelector('#level').appendChild(html); */
+            
+
         }
 
         function changeLevel() { //Когда клиент выбрал что-то - все просуммировалость, затем он выбрал что-то другое и нам нужно чтобы цена не плюсовалась к Итого, а перечситывалась (обнулялась)

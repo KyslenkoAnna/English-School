@@ -10,7 +10,7 @@ closeBtn1.addEventListener('click', function(){
     testWindow.style.display = 'none';
 });
 
-/* let dataArray = [
+let dataArray = [
     ["I have bought a computer, ________ is more expensive than this one.","who","which","that","from",2],
     ["There ________ some books on the shelves","isn't","are","aren't","doing",2],
     ["We want to meet ________ Monday.","at","in","on","since",3],
@@ -31,17 +31,14 @@ closeBtn1.addEventListener('click', function(){
     ["You can only have your money back if you can produce ______","a receipt","an invoice","a bill","an offer",1],
     ["If you’ve got heavy bags to carry, you'd be ________ a taxi.","better of taking","well-off taking","better off taking","well-of taking",3],
     ["There was no room in the hotel, so they were __________ at the B&B nearby.","accommodated","accomodated","acommodated","acomodated",1],
-]; */
-
-fetch('data/tests.json').then(resp=>resp.json()).then(dd=>{
-    dd.results.forEach(dataArray=>{
+];
         let plus = 0,
             time = 0,
             curAnswer = 0,
             countAnswer = dataArray.length;
 
         function sec() {
-            time++;	
+            time++;
             document.querySelector('#time').innerHTML = 'Потрачего времени: ' + time + ' с.';
         }
 
@@ -109,5 +106,3 @@ fetch('data/tests.json').then(resp=>resp.json()).then(dd=>{
                 }      
             }
         }
-    });
-});
