@@ -56,7 +56,8 @@ $(function(){
                 }
             }
             $('#level').append(html);
-            /* document.querySelector('#level').appendChild(html); */
+            /* document.querySelector('#level').appendChild(html); */ //Не работает
+            /* document.querySelector('#level').append(html); */ //Не работает
             
 
         }
@@ -66,6 +67,9 @@ $(function(){
 
             selectLevel = $('#level option').filter(':selected').data('level');
             selectBookPrice = $('#level option').filter(':selected').data('price');
+
+            /* selectLevel = document.querySelector('#level option') .... */
+            
 
             insertForm()
             insertTeacher();
