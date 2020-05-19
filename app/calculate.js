@@ -52,21 +52,27 @@ $(function(){
                 price;
             for(level in books){
                 for(price in books[level]){
-                    html += '<option data-level="' + level + '" data-price="' + price + '">'+ level +'</option>';
+                    // создается отдельный элемент, ему присваиваются параметры и потом он присоединяется к элементу
+                    // предыдущий вариант не работал, поскольку JS не может строку прицепить к элементу
+
+                    const option = document.createElement('option');
+                    option.setAttribute('data-level', level);
+                    option.setAttribute('data-price', price);
+                    option.innerText = level;
+                    document.querySelector('#level').appendChild(option);
                 }
             }
-            $('#level').append(html);
-            /* document.querySelector('#level').appendChild(html); */ //Не работает
-            /* document.querySelector('#level').append(html); */ //Не работает
-            
-
         }
 
-        function changeLevel() { //Когда клиент выбрал что-то - все просуммировалость, затем он выбрал что-то другое и нам нужно чтобы цена не плюсовалась к Итого, а перечситывалась (обнулялась)
+        function changeLevel(event) { //Когда клиент выбрал что-то - все просуммировалость, затем он выбрал что-то другое и нам нужно чтобы цена не плюсовалась к Итого, а перечситывалась (обнулялась)
             sum = 0;
 
-            selectLevel = $('#level option').filter(':selected').data('level');
-            selectBookPrice = $('#level option').filter(':selected').data('price');
+            // в эту функцию приходит элемент из которого напрямую можно взять выбранные опции
+
+            const selectedData = event.target.selectedOptions[0];
+
+            selectLevel = selectedData.dataset.level;
+            selectBookPrice = Number(selectedData.dataset.price); // Получаем данные ввиде строки, поэтому оборачиваем в Number, чтобы сделать числом.
 
             /* selectLevel = document.querySelector('#level option') .... */
             
@@ -106,14 +112,29 @@ $(function(){
         }
 
         function changeGroupOrIndividual(){
+
+            /* const selectedData = event.target.selectedOptions[0];
+            selectForm = selectedDataForm.dataset.form;
+            selectFormPrice = Number(selectedData.dataset.price); */
+
+
             selectForm = $('#form option').filter(':selected').data('price');
             recalc();
         }
         function changeTeacher(){
+            
+            /* const selectedData = event.target.selectedOptions[0];
+            selectTeacher = selectedData.dataset.teacher;
+            selectTeacherPrice = selectedData.dataset.price; */
+
             selectTeacher = $('#teacher option').filter(':selected').data('price');
             recalc();
+
         }
         function changeDays(){
+            /* const selectedData = event.target.selectedOptions[0];
+            selectDays = selectedData.dataset.days;
+            selectDaysPrice = selectedData.dataset.price; */
             selectDays = $('#days option').filter(':selected').data('price');
             recalc();
         }
@@ -122,7 +143,7 @@ $(function(){
         }
 
         function recalc(){
-            selectBookPrice = isNumeric(selectBookPrice) ? selectBookPrice : 0;
+            selectBook = isNumeric(selectBook) ? selectBook : 0;
             selectForm = isNumeric(selectForm) ? selectForm : 0;
             selectTeacher = isNumeric(selectTeacher) ? selectTeacher : 0;
             selectDays = isNumeric(selectDays) ? selectDays : 0;
@@ -131,7 +152,7 @@ $(function(){
         }
 
         function changeTable(){
-            document.querySelector('.level').textContent = selectBookPrice;
+            document.querySelector('.level').textContent = selectBook;
             document.querySelector('.form').textContent = selectForm;
             document.querySelector('.teacher').textContent = selectTeacher;
             document.querySelector('.days').textContent = selectDays;
